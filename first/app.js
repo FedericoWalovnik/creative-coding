@@ -2,7 +2,7 @@ window.addEventListener("load", () =>{
     const canvas = document.getElementById('canvas');
     const ctx = canvas.getContext('2d');
 
-    const colors = ['#FF7D47','#E85941','#FF5454','#E84195','#FF47FF']
+    const colors= ['#FF7D47','#E85941','#FF5454','#E84195','#FF47FF']
 
     //Resizing
     canvas.height = 700;
