@@ -11,7 +11,7 @@ window.addEventListener("load", () =>{
     canvas.style.backgroundColor = "#f8f1f1"
 
     let Xlocation = 0;
-    let Ylocation = 0
+    let Ylocation = 0;
     
     const randomColor = () =>{
         const randomNumber = Math.round(Math.random()*4);

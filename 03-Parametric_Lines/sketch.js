@@ -29,6 +29,10 @@ function draw() {
   t++;
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 const x1 = (t) => {
   return cos(t / 30) * 240 + cos(t / 50) * 300;
 };
