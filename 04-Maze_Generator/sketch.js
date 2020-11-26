@@ -1,7 +1,12 @@
+//HTML ELEMENTS
+const currentSize = document.getElementById("size");
+const minusButton = document.getElementById("minus");
+const plusButton = document.getElementById("plus");
+
 let Xlocation = 0;
 let Ylocation = 0;
 
-const sizeOfSquare = 25;
+let sizeOfSquare = 30;
 
 function setup() {
   angleMode(DEGREES);
@@ -15,11 +20,9 @@ function draw() {
   stroke(255);
   strokeWeight(2);
 
+  //Get a random number between 0 and 1 to determine the direction of the line
   const randomNumber = Math.round(Math.random() * 1);
 
-  fill(255, 0, 0);
-  //rect(0, 0, sizeOfSquare, sizeOfSquare);
-  push();
   if (randomNumber === 0) {
     line(
       Xlocation,
@@ -35,16 +38,35 @@ function draw() {
       Ylocation + sizeOfSquare,
     );
   }
-  pop();
-
-  console.log(Xlocation, Ylocation);
 
   Xlocation += sizeOfSquare;
   if (Xlocation > width) {
     Xlocation = 0;
     Ylocation += sizeOfSquare;
   }
-  if (Ylocation > height) {
-    noLoop();
-  }
 }
+
+const resetDraw = () => {
+  Xlocation = 0;
+  Ylocation = 0;
+  background(0);
+};
+
+const handleCurrentSizeChange = () => {
+  currentSize.innerHTML = sizeOfSquare;
+};
+
+const modifySize = (operation) => {
+  console.log(operation);
+  if (operation === "plus") {
+    sizeOfSquare += 5;
+  } else {
+    sizeOfSquare -= 5;
+  }
+  handleCurrentSizeChange();
+  resetDraw();
+};
+
+window.addEventListener("load", handleCurrentSizeChange);
+minusButton.addEventListener("click", modifySize.bind(Event, "minus"));
+plusButton.addEventListener("click", modifySize.bind(Event, "plus"));

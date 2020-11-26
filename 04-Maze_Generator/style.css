@@ -1,8 +1,11 @@
-html,
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
 
+html,
+body {
   display: flex;
 
   /* This centers our sketch horizontally. */
@@ -10,8 +13,37 @@ body {
 
   /* This centers our sketch vertically. */
   align-items: center;
+
+  font-family: "Roboto", sans-serif;
+  color: #fff;
 }
 
 canvas {
   display: block;
+}
+
+.userModificationsContainer {
+  padding: 2rem;
+  margin-left: 2rem;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: brown;
+  height: 600px;
+}
+
+.labelSquareSize {
+}
+
+.controlsSize {
+  margin-top: 0;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#currentSize {
+  font-size: 3rem;
 }
