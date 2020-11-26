@@ -6,7 +6,7 @@ const plusButton = document.getElementById("plus");
 let Xlocation = 0;
 let Ylocation = 0;
 
-let sizeOfSquare = 30;
+let sizeOfSquare = 35;
 
 function setup() {
   angleMode(DEGREES);
@@ -58,9 +58,10 @@ const handleCurrentSizeChange = () => {
 
 const modifySize = (operation) => {
   console.log(operation);
-  if (operation === "plus") {
+
+  if (operation === "plus" && sizeOfSquare < width / 2) {
     sizeOfSquare += 5;
-  } else {
+  } else if (operation === "minus" && sizeOfSquare > 5) {
     sizeOfSquare -= 5;
   }
   handleCurrentSizeChange();
