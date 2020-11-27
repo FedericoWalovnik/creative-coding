@@ -28,7 +28,7 @@ canvas {
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  background-color: brown;
+  background-color: #000;
   height: 600px;
 }
 
@@ -46,4 +46,8 @@ canvas {
 
 #currentSize {
   font-size: 3rem;
+}
+
+#speed {
+  background-color: blueviolet;
 }

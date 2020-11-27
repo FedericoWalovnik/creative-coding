@@ -2,7 +2,9 @@
 const currentSize = document.getElementById("size");
 const minusButton = document.getElementById("minus");
 const plusButton = document.getElementById("plus");
+const speedRange = document.getElementById("speed");
 
+let fr = 35;
 let Xlocation = 0;
 let Ylocation = 0;
 
@@ -13,7 +15,8 @@ function setup() {
   var cnv = createCanvas(600, 600);
   cnv.style("display", "block");
   background(0);
-  rectMode(CENTER);
+  console.log(fr);
+  frameRate(fr);
 }
 
 function draw() {
@@ -68,6 +71,14 @@ const modifySize = (operation) => {
   resetDraw();
 };
 
+const handleSpeedChange = () => {
+  console.log("changing speed");
+  fr = speedRange.value;
+  console.log(fr);
+};
+
+console.log(speedRange.value);
 window.addEventListener("load", handleCurrentSizeChange);
 minusButton.addEventListener("click", modifySize.bind(Event, "minus"));
 plusButton.addEventListener("click", modifySize.bind(Event, "plus"));
+speedRange.addEventListener("change", handleSpeedChange);
