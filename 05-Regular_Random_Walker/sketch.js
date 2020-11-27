@@ -39,19 +39,28 @@ const checkIfHitsWall = () => {
   return hitTheWall;
 };
 
-const chooseNextStep = () => {
-  const randomNumber = Math.round(Math.random() * 3);
+let zero = 0;
+let one = 0;
+let two = 0;
+let three = 0;
 
-  console.log(checkIfHitsWall());
+const chooseNextStep = () => {
+  const randomNumber = Math.floor(Math.random() * 4);
+
   if (!checkIfHitsWall()) {
     if (randomNumber === 0) {
       Xposition += 5;
+      zero++;
     } else if (randomNumber === 1) {
       Yposition += 5;
+      one++;
     } else if (randomNumber === 2) {
       Xposition -= 5;
+      two++;
     } else {
       Yposition -= 5;
+      three++;
     }
   }
+  console.log(zero, one, two, three);
 };
