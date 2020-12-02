@@ -24,9 +24,10 @@ function draw() {
 
     let squares = Math.round(random(2, 5));
     let squareStartingPoint = 0;
-    for (index = 0; index < squares; index++) {
-      let color = Math.round(random(0, 3));
 
+    console.log("horizontal " + index);
+    for (a = 0; a < squares; a++) {
+      let color = Math.round(random(0, 3));
       if (color === 0) {
         fill(231, 5, 3);
       } else if (color === 1) {
@@ -36,7 +37,7 @@ function draw() {
       } else if (color === 3) {
         fill(234, 239, 233);
       }
-
+      console.log("vertical " + index);
       rect(squareStartingPoint, startingPoint, width / squares, rowHeight);
       squareStartingPoint = squareStartingPoint + width / squares;
     }
