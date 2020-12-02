@@ -27,14 +27,14 @@ function draw() {
 
     console.log("horizontal " + index);
     for (a = 0; a < squares; a++) {
-      let color = Math.round(random(0, 3));
-      if (color === 0) {
+      let color = Math.random();
+      if (color > 0 && color <= 0.2) {
         fill(231, 5, 3);
-      } else if (color === 1) {
+      } else if (color > 0.2 && color <= 0.4) {
         fill(253, 222, 6);
-      } else if (color === 2) {
+      } else if (color > 0.4 && color <= 0.6) {
         fill(3, 0, 173);
-      } else if (color === 3) {
+      } else if (color > 0.6 && color < 1) {
         fill(234, 239, 233);
       }
       console.log("vertical " + index);
