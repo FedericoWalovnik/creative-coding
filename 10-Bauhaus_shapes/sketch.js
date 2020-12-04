@@ -31,7 +31,28 @@ function draw() {
   if (randomFigure === 0) {
     arc(Xlocation, Ylocation, sizeOfSquare * 2, sizeOfSquare * 2, 0, 90);
   } else if (randomFigure === 1) {
-    square(Xlocation, Ylocation, sizeOfSquare);
+    let innerSquareX = Xlocation;
+    let innerSquareY = Ylocation;
+
+    const stripWidth = sizeOfSquare / 16;
+    let totalSpace = 0;
+    let stripeColor = 0;
+
+    fill(150);
+    while (totalSpace < sizeOfSquare) {
+      if (stripeColor === 0) {
+        fill(0);
+        stripeColor = 255;
+      } else {
+        fill(255);
+        stripeColor = 0;
+      }
+      rect(innerSquareX, innerSquareY, stripWidth, sizeOfSquare);
+      innerSquareX += stripWidth;
+      totalSpace += stripWidth;
+    }
+
+    innerSquareX += stripWidth;
   } else if (randomFigure === 2) {
     arc(
       Xlocation + sizeOfSquare,
