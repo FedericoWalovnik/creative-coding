@@ -15,7 +15,7 @@ body {
   align-items: center;
 
   font-family: "Roboto", sans-serif;
-  color: #fff;
+  background-color: #000;
 }
 
 canvas {
