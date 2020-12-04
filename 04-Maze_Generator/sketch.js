@@ -15,7 +15,6 @@ function setup() {
   var cnv = createCanvas(600, 600);
   cnv.style("display", "block");
   background(0);
-  console.log(fr);
   frameRate(fr);
 }
 

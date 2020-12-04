@@ -7,7 +7,7 @@ function setup() {
   cnv.style("display", "block");
   background(234, 239, 233);
 
-  rows = Math.round(random(3, 5));
+  rows = Math.round(random(2, 4));
   console.log(rows);
   spaceLeft = width;
   startingPoint = 0;
@@ -17,6 +17,8 @@ function setup() {
 }
 
 function draw() {
+  rect(width, height);
+
   for (index = 0; index < rows; index++) {
     //determine the height of the current row
     const randomHeight = random(startingPoint + 40, height - 40);
@@ -27,6 +29,9 @@ function draw() {
 
     console.log("horizontal " + index);
     for (a = 0; a < squares; a++) {
+      const randomWidth = random(startingPoint + 40, height - 40);
+      const squareWidth = Math.round(randomHeight);
+
       let color = Math.random();
       if (color > 0 && color <= 0.2) {
         fill(231, 5, 3);
@@ -39,7 +44,9 @@ function draw() {
       }
       console.log("vertical " + index);
       rect(squareStartingPoint, startingPoint, width / squares, rowHeight);
-      squareStartingPoint = squareStartingPoint + width / squares;
+
+      squareStartingPoint =
+        squareStartingPoint + (rowHeight - squareStartingPoint);
     }
 
     startingPoint = startingPoint + (rowHeight - startingPoint);
