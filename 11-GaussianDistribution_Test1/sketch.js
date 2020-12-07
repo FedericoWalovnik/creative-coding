@@ -14,7 +14,7 @@ coding train video: https://www.youtube.com/watch?v=8uyR-YU_0dg&list=PLRqwX-V7Uu
 
 let Xposition;
 let mean;
-let sd = 100;
+let sd = 150;
 
 function setup() {
   var cnv = createCanvas(900, 300);
