@@ -1,7 +1,7 @@
 function setup() {
   var cnv = createCanvas(600, 600);
   cnv.style("display", "block");
-  angleMode(DEGREES);
+  frameRate(10);
 }
 
 function draw() {
@@ -11,8 +11,9 @@ function draw() {
   noFill();
 
   beginShape();
-  for (let a = 0; a < TWO_PI; a += 0.1) {
-    let r = 100;
+  console.log(TWO_PI);
+  for (let a = 0; a < TWO_PI + 100; a += 0.1) {
+    let r = random(60, 260);
     let x = r * cos(a);
     let y = r * sin(a);
     vertex(x, y);
