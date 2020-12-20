@@ -1,7 +1,7 @@
 function setup() {
   var cnv = createCanvas(600, 600);
   cnv.style("display", "block");
-  frameRate(15);
+  frameRate(10);
 }
 
 function draw() {
@@ -10,13 +10,15 @@ function draw() {
   stroke(255);
   noFill();
 
+  let time = 0;
   beginShape();
   console.log(TWO_PI);
-  for (let a = 0; a < TWO_PI + 100; a += 0.5) {
-    let r = random(60, 260);
+  for (let a = 0; a < TWO_PI; a += 0.1) {
+    let r = map(noise(time) * 100);
     let x = r * cos(a);
     let y = r * sin(a);
     vertex(x, y);
+    time += 0.1;
   }
-  endShape();
+  endShape(CLOSE);
 }
