@@ -1,7 +1,9 @@
+let maxNoise = 10;
+let phase = 0;
+
 function setup() {
   var cnv = createCanvas(600, 600);
   cnv.style("display", "block");
-  frameRate(10);
 }
 
 function draw() {
@@ -10,15 +12,15 @@ function draw() {
   stroke(255);
   noFill();
 
-  let time = 0;
   beginShape();
-  console.log(TWO_PI);
   for (let a = 0; a < TWO_PI; a += 0.1) {
-    let r = map(noise(time) * 100);
+    let xoff = map(cos(a + phase), -1, 1, 0, maxNoise);
+    let yoff = map(sin(a), -1, 1, 0, maxNoise);
+    let r = map(noise(xoff, yoff), 0, 1, 100, 300);
     let x = r * cos(a);
     let y = r * sin(a);
     vertex(x, y);
-    time += 0.1;
   }
   endShape(CLOSE);
+  phase += 0.01;
 }
