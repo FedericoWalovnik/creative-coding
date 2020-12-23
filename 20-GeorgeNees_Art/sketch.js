@@ -1,8 +1,13 @@
 let Xlocation = 0;
 let Ylocation = 0;
 
-let mean = 0;
-let sd = 0;
+let locationMean = 0;
+let locationSd = 0;
+let randomXLocation;
+let randomYLocation;
+
+let rotationMean = 0;
+let rotationSd = 0;
 let randomRotation;
 
 let sizeOfSquare = 25;
@@ -19,17 +24,24 @@ function draw() {
   fill(0, 0, 0, 0);
   strokeWeight(1);
 
-  randomRotation = randomGaussian(mean, sd);
+  randomXLocation = randomGaussian(locationMean, locationSd);
+  randomYLocation = randomGaussian(locationMean, locationSd);
+  randomRotation = randomGaussian(rotationMean, rotationSd);
   push();
   translate(Xlocation + sizeOfSquare / 2, Ylocation + sizeOfSquare / 2);
   rotate(randomRotation);
-  square(0 - sizeOfSquare / 2, 0 - sizeOfSquare / 2, sizeOfSquare);
+  square(
+    randomXLocation - sizeOfSquare / 2,
+    randomYLocation - sizeOfSquare / 2,
+    sizeOfSquare,
+  );
   pop();
 
   Xlocation += sizeOfSquare;
   if (Xlocation > width) {
     Xlocation = 0;
     Ylocation += sizeOfSquare;
-    sd += 2;
+    rotationSd += 2;
+    locationSd += 0.2;
   }
 }
