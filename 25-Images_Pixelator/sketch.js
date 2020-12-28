@@ -30,4 +30,3 @@ function draw() {
 
   //updatePixels();
 }
-
