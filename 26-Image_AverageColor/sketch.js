@@ -1,49 +1,64 @@
-let img;
+let images = new Array(3);
 let r = 0;
 let g = 0;
 let b = 0;
 let a = 0;
 
+let sizeOfSquare = 35;
+let Xlocation = 0;
+let Ylocation = 0;
+
 function preload(){
-  img = loadImage("sunflowers.jpg");
-  blueskyImg = loadImage("bluesky.jpg");
+  for (let i = 0; i < 2; i++) {
+    images.push(loadImage(`${i}.jpg`));
+  }
+  //img = loadImage("sunflowers.jpg");
+  //blueskyImg = loadImage("bluesky.jpg");
+
+  //images = [img, blueskyImg]
 }
 
 function setup() {
   angleMode(DEGREES);
-  blueskyImg.resize(650, 0);
-  var cnv = createCanvas(blueskyImg.width, blueskyImg.height);
+  var cnv = createCanvas(600,600);
   cnv.style("display", "block");
   background(255);
-
+  frameRate(1);
 }
 
 function draw() {
   loadPixels();
-  image(blueskyImg, 0, 0);
-  blueskyImg.loadPixels();
-
-  for(let y = 0; y < height; y++){
-    for(let x = 0; x < width; x++){
-      let index = (x + y * width) * 4;
-      r += blueskyImg.pixels[index + 0];
-      g += blueskyImg.pixels[index + 1];
-      b += blueskyImg.pixels[index + 2];
-      a += blueskyImg.pixels[index + 3];
-
+  
+  images.forEach(image => {
+    image.loadPixels();
+    for(let y = 0; y < height; y++){
+      for(let x = 0; x < width; x++){
+        let index = (x + y * width) * 4;
+        r += image.pixels[index + 0];
+        g += image.pixels[index + 1];
+        b += image.pixels[index + 2];
+        a += image.pixels[index + 3];
+        
+        
+      }
     }
-  }
-
-  r = r / (pixels.length / 4);
-  g = g / (pixels.length / 4);
-  b = b / (pixels.length / 4);
-  a = a / (pixels.length / 4);
-
-  noStroke();
-  fill(r,g,b);
-  console.log(r,g,b)
-  square(100,100,100);
-
+    r = r / (pixels.length / 4);
+    g = g / (pixels.length / 4);
+    b = b / (pixels.length / 4);
+    a = a / (pixels.length / 4);
+    
+    noStroke();
+    console.log(r,g,b);
+    fill(r,g,b);
+    square(Xlocation,Ylocation,sizeOfSquare);
+    
+    Xlocation += sizeOfSquare;
+    if (Xlocation > width) {
+      Xlocation = 0;
+      Ylocation += sizeOfSquare;
+    }
+  } 
+)
 
 
   //updatePixels();
